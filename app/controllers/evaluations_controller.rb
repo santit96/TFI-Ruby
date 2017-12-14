@@ -4,7 +4,7 @@ class EvaluationsController < ApplicationController
   # GET /evaluations
   # GET /evaluations.json
   def index
-    @evaluations = Evaluation.all
+    @evaluations = Course.find(params[:course_id]).evaluations
   end
 
   # GET /evaluations/1

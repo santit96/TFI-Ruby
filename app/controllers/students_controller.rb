@@ -15,9 +15,6 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @student.course=Course.find(params[:course_id])
-    @student
-
   end
 
   # GET /students/1/edit
@@ -59,7 +56,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to course_students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

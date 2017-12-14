@@ -19,10 +19,10 @@
         <td><%= evaluation.name %></td>
         <td><%= evaluation.date %></td>
         <td><%= evaluation.min_grade %></td>
-        <td><%= evaluation.course %></td>
-        <td><%= link_to 'Show', evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= evaluation.course.name %></td>
+        <td><%= link_to 'Show', course_evaluation_path(evaluation.course,evaluation) %></td>
+        <td><%= link_to 'Edit', edit_course_evaluation_path(evaluation.course,evaluation) %></td>
+        <td><%= link_to 'Destroy', course_evaluation_path(evaluation.course,evaluation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Evaluation', new_evaluation_path %>
+<%= link_to 'New Evaluation', new_course_evaluation_path %> 
+<%= link_to 'Back', course_url(@evaluations.first.course) %>
