@@ -1,10 +1,11 @@
 class EvaluationsController < ApplicationController
+  before_action :set_course 
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
 
   # GET /evaluations
   # GET /evaluations.json
   def index
-    @evaluations = Course.find(params[:course_id]).evaluations
+    @evaluations =@course.evaluations
   end
 
   # GET /evaluations/1
@@ -14,7 +15,7 @@ class EvaluationsController < ApplicationController
 
   # GET /evaluations/new
   def new
-    @evaluation = Evaluation.new
+    @evaluation = @course.evaluations.new
   end
 
   # GET /evaluations/1/edit
@@ -24,11 +25,11 @@ class EvaluationsController < ApplicationController
   # POST /evaluations
   # POST /evaluations.json
   def create
-    @evaluation = Evaluation.new(evaluation_params)
+    @evaluation = @course.evaluations.new(evaluation_params)
 
     respond_to do |format|
       if @evaluation.save
-        format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
+        format.html { redirect_to [@course,@evaluation], notice: 'Evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @evaluation }
       else
         format.html { render :new }
@@ -62,9 +63,12 @@ class EvaluationsController < ApplicationController
   end
 
   private
+    def set_course
+	@course= Course.find(params[:course_id])
+    end 
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluation
-      @evaluation = Evaluation.find(params[:id])
+      @evaluation = @course.evaluations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
