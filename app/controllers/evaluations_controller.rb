@@ -30,7 +30,7 @@ class EvaluationsController < ApplicationController
     respond_to do |format|
       if @evaluation.save
         format.html { redirect_to [@course,@evaluation], notice: 'Evaluation was successfully created.' }
-        format.json { render :show, status: :created, location: @evaluation }
+        format.json { render :show, status: :created, location: [@course,@evaluation] }
       else
         format.html { render :new }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class EvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluation.update(evaluation_params)
-        format.html { redirect_to @evaluation, notice: 'Evaluation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @evaluation }
+        format.html { redirect_to [@course,@evaluation], notice: 'Evaluation was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@course,@evaluation] }
       else
         format.html { render :edit }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }
