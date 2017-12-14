@@ -10,21 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212214250) do
+ActiveRecord::Schema.define(version: 20171212221116) do
 
   create_table "courses", force: :cascade do |t|
-    t.integer "year"
-    t.string "name", limit: 100
+    t.integer "year", null: false
+    t.string "name", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "date", null: false
+    t.float "min_grade", null: false
+    t.integer "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_evaluations_on_course_id"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "evaluation_id", null: false
+    t.float "grade", default: -1.0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_id"], name: "index_grades_on_evaluation_id"
+    t.index ["student_id"], name: "index_grades_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "lastname"
-    t.integer "dni"
-    t.string "number", limit: 25
-    t.integer "course_id"
+    t.string "name", null: false
+    t.string "lastname", null: false
+    t.integer "dni", null: false
+    t.string "number", limit: 25, null: false
+    t.integer "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_students_on_course_id"
