@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :grades
-  resources :evaluations
-  resources :students
-  resources :courses
+  resources :courses do
+  	resources :evaluations, :students , :grades
+  end
 
   devise_for :users , only: [:session]
   root to: 'courses#index' 

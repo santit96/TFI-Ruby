@@ -21,10 +21,10 @@
         <td><%= student.lastname %></td>
         <td><%= student.dni %></td>
         <td><%= student.number %></td>
-        <td><%= student.course %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= student.course.name  %></td>
+        <td><%= link_to 'Show', new_course_student_path(student.course,student) %></td>
+        <td><%= link_to 'Edit', edit_course_student_path(student.course,student) %></td>
+        <td><%= link_to 'Destroy', course_student_path(student.course,student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to 'New Student',new_course_student_path %>
+<%= link_to 'Back', courses_path %>

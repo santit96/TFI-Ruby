@@ -10,5 +10,6 @@
   <%= @course.name %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Edit', edit_course_path %> |
 <%= link_to 'Back', courses_path %>
+<%= link_to 'Students', course_students_path(@course) %>
