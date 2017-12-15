@@ -1,4 +1,4 @@
-<%= form_with(model: grade, local: true) do |form| %>
+<%= form_with(model: [@evaluation.course,@evaluation,grade], local: true) do |form| %>
   <% if grade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(grade.errors.count, "error") %> prohibited this grade from being saved:</h2>
@@ -13,13 +13,9 @@
 
   <div class="field">
     <%= form.label :student_id %>
-    <%= form.text_field :student_id, id: :grade_student_id %>
+    <%=  form.collection_select(:student_id, @students, :id, :name) %> 
   </div>
 
-  <div class="field">
-    <%= form.label :evaluation_id %>
-    <%= form.text_field :evaluation_id, id: :grade_evaluation_id %>
-  </div>
 
   <div class="field">
     <%= form.label :grade %>

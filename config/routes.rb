@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :courses do
-  	resources :evaluations, :students , :grades
+  	resources :evaluations do
+  		resources :grades
+  	end
+  	resources :students 
   end
 
   devise_for :users , only: [:session]
