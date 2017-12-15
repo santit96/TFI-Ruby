@@ -9,11 +9,20 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
+ 
+ 
 
 */
+@import "bootstrap"; 
+
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
 
 .sign-in-form {
   width:20%;
@@ -72,5 +81,6 @@
   background-color: #44c8ed;
   border-color: #44c8ed;
 }
+
 
 
