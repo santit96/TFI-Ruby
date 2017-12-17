@@ -1,5 +1,10 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag "log_in" %>
+
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="sign-in-form">
+  <div class="sign-in-form offset-md-4">
   <h2 >Log in</h2>
   <div class="field">
     <%= f.label :email %><br />

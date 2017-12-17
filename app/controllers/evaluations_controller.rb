@@ -16,7 +16,9 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = @course.evaluations.new
+    @course.students.each {|s| @evaluation.grades.build(:student=>s)}
   end
+
 
   # GET /evaluations/1/edit
   def edit
@@ -57,22 +59,23 @@ class EvaluationsController < ApplicationController
   def destroy
     @evaluation.destroy
     respond_to do |format|
-      format.html { redirect_to evaluations_url, notice: 'Evaluation was successfully destroyed.' }
+      format.html { redirect_to course_evaluations_url, notice: 'Evaluation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     def set_course
-	@course= Course.find(params[:course_id])
+	     @course= Course.find(params[:course_id])
     end 
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluation
       @evaluation = @course.evaluations.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id)
+      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id, grades_atributes: [:id, :student , :evaluation])
     end
 end

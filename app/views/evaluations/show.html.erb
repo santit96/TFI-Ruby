@@ -17,9 +17,11 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @evaluation.course %>
+  <%= @evaluation.course.name %>
 </p>
 
 <%= link_to 'Edit', edit_course_evaluation_path(@evaluation) %> |
 <%= link_to 'Back', course_evaluations_path %>
 <%= link_to 'Grades', course_evaluation_grades_path(@course,@evaluation) %>
+<%= link_to 'SetGrades', set_grades_course_evaluation_path(@course,@evaluation) %>
+<%= render 'set_grades', evaluation: @evaluation %>

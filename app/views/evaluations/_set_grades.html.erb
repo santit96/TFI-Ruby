@@ -1,0 +1,20 @@
+<%= form_for [@course,@evaluation] do |f| %>
+  Addresses:
+  <ul>
+    <%= f.fields_for :grades do |grades_form| %>
+      <li>
+        <div class="field">
+        <%= grades_form.label :student %>
+        <%= grades_form.text_field :student  %>
+        </div>
+        <div class="field">
+        <%= grades_form.label :grade %>
+        <%= grades_form.text_field :grade %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <div class="action">
+  <%= f.submit %>
+  </div>
+<% end %>
