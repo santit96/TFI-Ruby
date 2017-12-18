@@ -15,6 +15,14 @@
 */
 @import "bootstrap"; ;
 
+body {
+    background-image: url("ruby.png");
+    background-repeat: repeat;
+  }
+
+.container{
+	background-color: #3d454f; height: 95%; margin-top: 2%;
+}
 .navBar{
 
 	background-color: #3d454f !important;
@@ -39,6 +47,19 @@
 	display: inline-block;
 	border-left: none;
 	margin-bottom: 10px;
+	border:none; 
+	background-color: #3d454f;
+	color: white;
+}
+.newCourse-img{
+	width: 20%;
+}
+.newCourse{
+	color: white;
+	font-size: 30px;
+	float: right;
+	text-decoration: none !important;
+	margin-top: -2%;
 }
 
 

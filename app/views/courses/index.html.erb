@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Courses</h1>
-
+<a href="<%= new_course_path %>" class="newCourse col-md-3">  <%= image_tag("redplus.png",class:"newCourse-img ")%> New course</a>
+<h1 style="color:white">Courses</h1>
+<hr style="background-color: white"> 
 <div class="list-group "> 
   <% @courses.each do |course| %>
-    <div  class="list-group-item list-group-item-action course-elem" >
+    <div  class="list-group-item list-group-item-action course-elem"  >
       <%= image_tag("ruby.png",class:"course-img ") %>
       <%= course.name %>
       <%= course.year %>
       <%= link_to 'Show', course  %>
       <%= link_to 'Edit', edit_course_path(course) %>
       <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-      
+      <hr style="background-color: white">   
     </div>
+    
   <% end %>
 </div>
-<%= link_to 'New Course', new_course_path %>
+

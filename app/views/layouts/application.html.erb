@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html style=" height: 90%;">
   <head>
     <title>TFIRuby</title>
     <%= csrf_meta_tags %>
@@ -9,13 +9,13 @@
     <%= yield(:head) %>
   </head>
 
-  <body >
+  <body style=" height: 100%;">
     <nav class="navbar navbar-dark bg-dark navBar">
-      <h4> Ruby - course management</h2>
+      <h4> Ruby - course management</h4>
       <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
     </nav>
 
-  	<div class="container">
+  	<div class="container" >
 
         <p class="alert"><%= alert %></p>
     <%= yield %>
