@@ -43,13 +43,15 @@ body {
 }
 
 .course-elem{
-	padding:0 0 0 0;
 	display: inline-block;
 	border-left: none;
 	margin-bottom: 10px;
 	border:none; 
 	background-color: #3d454f;
 	color: white;
+	border-bottom: solid 1px;
+	border-color: white;
+	border-radius: none;
 }
 .newCourse-img{
 	width: 20%;
