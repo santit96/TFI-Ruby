@@ -19,9 +19,14 @@ body {
     background-image: url("ruby.png");
     background-repeat: repeat;
   }
-
+h1 { color: white }
+label{color:white;}
+hr{background-color: white;}
 .container{
-	background-color: #3d454f; height: 95%; margin-top: 2%;
+	background-color: #3d454f; 
+	height: 95%;
+	margin-top: 2%;
+	border-radius:5px;
 }
 .navBar{
 
@@ -63,6 +68,16 @@ body {
 	text-decoration: none !important;
 	margin-top: -2%;
 }
+
+.evaluationsTitle{
+	color:white;
+}
+.evaluationsItem {
+	color:white
+}
+
+
+
 
 
 

@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @course.year %>
-</p>
+<h1 style="text-align: center;"><%= @course.name %> - <%= @course.year %> </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+
+ <h4 class="evaluationsTitle" >
+   Evaluations
+  </h4>
+  <div>
+  <hr>
+  <% @course.evaluations.each do |evaluation| %>  
+    <%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%>
+  <% end %>
+  </div>
+
 
 <%= link_to 'Edit', edit_course_path %> |
 <%= link_to 'Back', courses_path %>
 <%= link_to 'Students', course_students_path(@course) %>
-<%= link_to 'Evaluations', course_evaluations_path(@course) %>
+<%= link_to 'New Evaluation', new_course_evaluation_path(@course) %> 
+</div>
