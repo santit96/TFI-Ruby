@@ -1,6 +1,7 @@
 class EvaluationsController < ApplicationController
   before_action :set_course 
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_grades, only: [:show]
 
   # GET /evaluations
   # GET /evaluations.json
@@ -16,7 +17,6 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = @course.evaluations.new
-    @course.students.each {|s| @evaluation.grades.build(:student=>s)}
   end
 
 
@@ -65,6 +65,11 @@ class EvaluationsController < ApplicationController
   end
 
   private
+    def set_grades
+      @course.students.each do |s| 
+          @evaluation.grades.build(:student=> s)       
+      end
+    end
     def set_course
 	     @course= Course.find(params[:course_id])
     end 
@@ -76,6 +81,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id, grades_atributes: [:id, :student , :evaluation])
+      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id, grades_atributes: [:id, :student , :evaluation,:grade])
     end
 end

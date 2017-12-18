@@ -19,14 +19,27 @@ body {
     background-image: url("ruby.png");
     background-repeat: repeat;
   }
-h1 { color: white }
-label{color:white;}
-hr{background-color: white;}
+h1 { 
+	color: white 
+}
+
+label{
+	color:white;
+}
+
+hr{
+	background-color: white;
+}
+
+#notice {
+	color: white;
+}
 .container{
 	background-color: #3d454f; 
-	height: 95%;
+	height: 100%;
 	margin-top: 2%;
 	border-radius:5px;
+
 }
 .navBar{
 
@@ -73,7 +86,11 @@ hr{background-color: white;}
 	color:white;
 }
 .evaluationsItem {
-	color:white
+	color:white;
+	text-decoration: none;
+}
+.formTitle{
+	text-align: center;
 }
 
 

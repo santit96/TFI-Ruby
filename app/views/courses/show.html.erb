@@ -6,13 +6,15 @@
  <h4 class="evaluationsTitle" >
    Evaluations
   </h4>
-  <div>
+ 
   <hr>
+   <ul>
   <% @course.evaluations.each do |evaluation| %>  
-    <%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%>
+    <li><%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%></li>
+    
   <% end %>
-  </div>
-
+  </ul>
+<hr>
 
 <%= link_to 'Edit', edit_course_path %> |
 <%= link_to 'Back', courses_path %>
