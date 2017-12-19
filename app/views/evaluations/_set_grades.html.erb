@@ -1,5 +1,5 @@
 <%= form_for [@course,@evaluation] do |f| %>
-  Grades:
+  <h3 style="color: white; text-align: center">Grades</h3>
   <table  class="table table-bordered table-light gradesTable offset-md-3">
     <tr>
       <th class="col-md-2">Student</th>
@@ -22,6 +22,6 @@
 
   </table>
   <div class="action offset-md-5">
-  <%= f.submit value:"Update grades" %>
+  <%= f.submit value:"Update grades" ,class:"btn btn-danger" %>
   </div>
 <% end %>

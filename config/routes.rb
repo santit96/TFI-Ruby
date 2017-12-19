@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :courses do
+      member do
+        get 'grades'
+      end
   	resources :evaluations do
   		member do
   			get 'set_grades'

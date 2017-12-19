@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @evaluation.name %>
-</p>
-
+<h1  style="text-align: center">Evaluation  <%= @evaluation.name %>
+	<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_evaluation_path(@course,@evaluation) %>
+</h1>
+<div class="infoEvaluation">
 <p>
   <strong>Date:</strong>
   <%= @evaluation.date %>
@@ -19,8 +17,8 @@
   <strong>Course:</strong>
   <%= @evaluation.course.name %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_course_evaluation_path(@course,@evaluation) %> |
-<%= link_to 'Back', course_path(@course) %> 
-<%= link_to 'Grades', course_evaluation_grades_path(@course,@evaluation) %>
+
 <%= render 'set_grades', evaluation: @evaluation %>
+<%= link_to image_tag("back.png" , class:"backArrow", style:"margin-top:-2%;"), course_path(@course) %> 

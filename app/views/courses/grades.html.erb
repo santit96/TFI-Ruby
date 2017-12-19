@@ -1,0 +1,12 @@
+<h2 style="color:white; text-align: center;margin-bottom: 2%;">Grades resume</h2>
+<table class="table table-light">
+	<tr>
+		<th>Student</th>
+		<th>Dni</th>
+		<% @course.evaluations.each do |evaluation| %>
+		<th><%= evaluation.name %></th>
+		<th>Status</th>
+		<% end %> 
+	</tr>
+</table>
+<%= link_to image_tag("back.png" , class:"backArrow "), courses_path %>

@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
+<h1  style="text-align: center"><%= @course.name %> - <%= @course.year %>
+	<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_path %>
+</h1>
 
-<h1 style="text-align: center;"><%= @course.name %> - <%= @course.year %> </h1>
+<h4 >
+	<%= link_to 'Students', course_students_path(@course), class:"evaluationsTitle" %>
+</h4>
+<h4 >
+	<%= link_to 'Grades', grades_course_path(@course), class:"evaluationsTitle" %>
+</h4>
 
+<h4 class="evaluationsTitle"  >
+	Evaluations
+</h4>
 
- <h4 class="evaluationsTitle" >
-   Evaluations
-  </h4>
- 
-  <hr>
-   <ul>
+<hr>
+<ul>
   <% @course.evaluations.each do |evaluation| %>  
-    <li><%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%></li>
-    
+  	<li><%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%></li>  
   <% end %>
-  </ul>
+</ul>
 <hr>
 
-<%= link_to 'Edit', edit_course_path %> |
-<%= link_to 'Back', courses_path %>
-<%= link_to 'Students', course_students_path(@course) %>
-<%= link_to 'New Evaluation', new_course_evaluation_path(@course) %> 
-</div>
+<a href="<%= new_course_evaluation_path(@course) %>" class="newEvaluation col-md-3">  <%= image_tag("redplus.png",style:"width:10%")%> New evaluation</a>
+
+<%= link_to image_tag("back.png" , class:"backArrow "), courses_path %>
+
+

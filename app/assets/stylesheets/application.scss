@@ -39,9 +39,11 @@ a:hover{
 }
 .container{
 	background-color: #3d454f; 
-	height: 100%;
+	height: 105%;
 	margin-top: 2%;
 	border-radius:5px;
+
+
 
 }
 .navBar{
@@ -55,6 +57,11 @@ a:hover{
 
 .navBar a{
 	color:white;	
+}
+
+.backArrow{
+	width: 3%;
+	float:left;
 }
 
 .course-img{
@@ -96,12 +103,28 @@ a:hover{
 	margin-top: 1%;
 	float:right;
 }
+.edit-course-img{
+	width: 6%;
+}
 .evaluationsTitle{
 	color:white;
+	text-decoration:none;
 }
 .evaluationsItem {
 	color:white;
 	text-decoration: none;
+}
+.newEvaluation{
+	float:right;
+	font-size: 20px;
+	text-decoration: none;
+	color:white;
+	display: inline-block;
+}
+
+.infoEvaluation{
+	color:white;
+	font-size: 25px;
 }
 .formTitle{
 	text-align: center;
