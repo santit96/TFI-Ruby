@@ -1,6 +1,6 @@
-<h1>Editing Student</h1>
+<h1 class="formTitle">Editing Student</h1>
 
 <%= render 'form', student: @student %>
 
-<%= link_to 'Show', [@course,@student] %> |
-<%= link_to 'Back', course_students_path(@course) %>
+
+<%= link_to image_tag("back.png" , class:"backArrow offset-md-4"),  course_students_path(@course) %>

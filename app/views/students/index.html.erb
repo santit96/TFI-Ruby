@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Students</h1>
-
-<table>
+<h1  style="text-align: center"><%= @course.name %> - <%= @course.year %>
+</h1>
+<hr style="background-color: red">
+<h1 style="display: inline-block;">Students</h1>
+<a href="<%= new_course_student_path %>" class="newStudent col-md-3">  <%= image_tag("redplus.png",class:"newStudent-img ")%> New students</a>
+<table class="table table-light">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Dni</th>
-      <th>Number</th>
-      <th>Course</th>
-      <th colspan="3"></th>
+      <th class="col-md-2">Name</th>
+      <th class="col-md-2">Lastname</th>
+      <th class="col-md-2">Dni</th>
+      <th class="col-md-2">Number</th>
+      <th class="col-md-2">Course</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -22,9 +24,9 @@
         <td><%= student.dni %></td>
         <td><%= student.number %></td>
         <td><%= student.course.name  %></td>
-        <td><%= link_to 'Show', course_student_path(student.course,student) %></td>
-        <td><%= link_to 'Edit', edit_course_student_path(student.course,student) %></td>
-        <td><%= link_to 'Destroy', course_student_path(student.course,student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag("edit.png", class:"del-student-img"), edit_course_student_path(student.course,student) %></td>
+        <td>
+        <%= link_to image_tag("destroyBin.png", class:"del-student-img"), course_student_path(student.course,student), method: :delete, data: { confirm: 'Are you sure you want to delete the student?' } %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,5 +34,5 @@
 
 <br>
 
-<%= link_to 'New Student',new_course_student_path %>
-<%= link_to 'Back', course_path(@course) %>
+
+<%= link_to image_tag("back.png" , class:"backArrow"),  course_path(@course) %>

@@ -2,28 +2,31 @@
 <h1  style="text-align: center"><%= @course.name %> - <%= @course.year %>
 	<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_path %>
 </h1>
-
-<h4 >
-	<%= link_to 'Students', course_students_path(@course), class:"evaluationsTitle" %>
+<hr style="background-color: red">
+<h4 style="margin-top: 2%;">
+	<%= link_to image_tag("itemArrow.png" , class:"backArrow ")%>
+	<a href="<%= course_students_path(@course)%>" class="evaluationsTitle">  Students </a>	
 </h4>
-<h4 >
-	<%= link_to 'Grades', grades_course_path(@course), class:"evaluationsTitle" %>
-</h4>
-
-<h4 class="evaluationsTitle"  >
-	Evaluations
+<h4 style="margin-top: 2%;">
+	 <%= link_to image_tag("itemArrow.png" , class:"backArrow ")%>
+	<a href="<%=grades_course_path(@course)%>" class="evaluationsTitle"> Grades </a>
 </h4>
 
-<hr>
-<ul>
+<h4 class="evaluationsTitle dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 2%;" >
+	<%= link_to image_tag("itemArrow.png" , class:"backArrow ")%>Evaluations
+</h4>
+
+<div class="dropdown-menu ">
+	<hr style="background-color: red">
   <% @course.evaluations.each do |evaluation| %>  
-  	<li><%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem"%></li>  
+  	<%= link_to evaluation.name, course_evaluation_path(@course,evaluation), class:"evaluationsItem dropdown-item"%>
   <% end %>
-</ul>
-<hr>
+  <hr style="background-color: red">
+  <a href="<%= new_course_evaluation_path(@course) %>" style="color:white">  <%= image_tag("redplus.png",style:"width:3%")%> New evaluation</a>
+  <hr style="background-color: red">
+</div>
 
-<a href="<%= new_course_evaluation_path(@course) %>" class="newEvaluation col-md-3">  <%= image_tag("redplus.png",style:"width:10%")%> New evaluation</a>
 
-<%= link_to image_tag("back.png" , class:"backArrow "), courses_path %>
+<%= link_to image_tag("back.png" , class:"backArrow", style:"margin-top:10%;"), courses_path %>
 
 

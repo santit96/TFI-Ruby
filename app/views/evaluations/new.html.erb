@@ -1,4 +1,4 @@
-<h1>New Evaluation</h1>
+<h1 class="formTitle">New Evaluation</h1>
 
 <%= render 'form', evaluation: @evaluation %>
-<%= link_to 'Back', course_path(@course) %> 
+<%= link_to image_tag("back.png" , class:"backArrow offset-md-4"),  course_path(@course) %>

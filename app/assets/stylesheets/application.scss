@@ -63,7 +63,6 @@ a:hover{
 	width: 3%;
 	float:left;
 }
-
 .course-img{
 	width: 6%;
 
@@ -105,15 +104,23 @@ a:hover{
 }
 .edit-course-img{
 	width: 6%;
+
+}
+.del-student-img{
+	width: 50%;
 }
 .evaluationsTitle{
 	color:white;
 	text-decoration:none;
 }
+.evaluationsTitle:hover{
+	color:red;
+}
 .evaluationsItem {
 	color:white;
 	text-decoration: none;
 }
+
 .newEvaluation{
 	float:right;
 	font-size: 20px;
@@ -126,6 +133,17 @@ a:hover{
 	color:white;
 	font-size: 25px;
 }
+
+.newStudent{
+	color: white;
+	font-size: 20px;
+	float: right;
+	text-decoration: none !important;
+
+}
+.newStudent-img{
+	width: 15%;
+}
 .formTitle{
 	text-align: center;
 }
@@ -137,6 +155,12 @@ a:hover{
 .gradesTable input{
 	width: 50%;
 	text-align: center;
+}
+
+.dropdown-menu{
+	background-color: transparent;
+	margin-left: 10%;
+	border: none;
 }
 
 
