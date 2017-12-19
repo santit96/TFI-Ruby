@@ -30,7 +30,10 @@ label{
 hr{
 	background-color: white;
 }
-
+a:hover{
+	text-decoration: none;
+	color: red;
+}
 #notice {
 	color: white;
 }
@@ -57,7 +60,6 @@ hr{
 .course-img{
 	width: 6%;
 
-
 }
 
 .course-elem{
@@ -71,8 +73,16 @@ hr{
 	border-color: white;
 	border-radius: none;
 }
+.course-elem:hover{
+	background-color: #7d656f;
+} 
 .newCourse-img{
 	width: 20%;
+}
+.showCourse{
+	text-decoration:none;
+	color: white;
+	font-size: 20px;
 }
 .newCourse{
 	color: white;
@@ -81,7 +91,11 @@ hr{
 	text-decoration: none !important;
 	margin-top: -2%;
 }
-
+.del-course-img{
+	width: 6%;
+	margin-top: 1%;
+	float:right;
+}
 .evaluationsTitle{
 	color:white;
 }
@@ -93,6 +107,14 @@ hr{
 	text-align: center;
 }
 
+.gradesTable{
+	text-align: center;
+	width:50%;
+}
+.gradesTable input{
+	width: 50%;
+	text-align: center;
+}
 
 
 

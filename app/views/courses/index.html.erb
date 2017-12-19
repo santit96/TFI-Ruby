@@ -5,12 +5,12 @@
 <div class="list-group "> 
   <% @courses.each do |course| %>  
     <div  class="list-group-item list-group-item-action course-elem"  >
-      <%= image_tag("ruby.png",class:"course-img ") %>
+      <a href="<%= course_path(course)%>" class="showCourse"><%= image_tag("ruby.png",class:"course-img ") %>
       <%= course.name %>
       <%= course.year %>
-      <%= link_to 'Show', course  %>
-      <%= link_to 'Edit', edit_course_path(course) %>
-      <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %> 
+     </a>
+      <%= link_to image_tag("destroyBin.png", class:"col-md-1 del-course-img"), course, method: :delete, data: { confirm: 'Are you sure you want to delete the course?' } %> 
+      <%= link_to image_tag("edit.png", class:"col-md-2 del-course-img"), edit_course_path(course) %>
     </div>
   <% end %>
 </div>

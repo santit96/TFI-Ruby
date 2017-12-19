@@ -17,6 +17,9 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = @course.evaluations.new
+      @course.students.each do |s| 
+          @evaluation.grades.build(:student=> s)       
+      end
   end
 
 
@@ -66,9 +69,7 @@ class EvaluationsController < ApplicationController
 
   private
     def set_grades
-      @course.students.each do |s| 
-          @evaluation.grades.build(:student=> s)       
-      end
+      @course.students.each {|a| @evaluation.grades.find_or_create_by(student_id:a.id,evaluation_id:@evaluation.id)}
     end
     def set_course
 	     @course= Course.find(params[:course_id])
@@ -81,6 +82,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id, grades_atributes: [:id, :student , :evaluation,:grade])
+      params.require(:evaluation).permit(:name, :date, :min_grade, :course_id, grades_attributes: [:id, :student , :evaluation,:grade])
     end
 end

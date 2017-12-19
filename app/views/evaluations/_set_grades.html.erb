@@ -1,20 +1,27 @@
 <%= form_for [@course,@evaluation] do |f| %>
-  Addresses:
-  <ul>
+  Grades:
+  <table  class="table table-bordered table-light gradesTable offset-md-3">
+    <tr>
+      <th class="col-md-2">Student</th>
+      <th class="col-md-2">Dni</th>
+      <th class="col-md-2">Grade</th>
+    </tr>
     <%= f.fields_for :grades do |grades_form| %>
-      <li>
-        <div class="field">
-        <%= grades_form.label :student %>
-        <%= grades_form.text_field :student  %>
-        </div>
-        <div class="field">
-        <%= grades_form.label :grade %>
-        <%= grades_form.text_field :grade %>
-        </div>
-      </li>
+    <tr>
+      <td >      
+        <%= grades_form.object.student.name %>
+      </td>
+       <td >      
+        <%= grades_form.object.student.dni %>
+      </td>
+      <td >
+        <%= grades_form.text_field :grade  %>
+      </td>
+    </tr>
     <% end %>
-  </ul>
-  <div class="action">
-  <%= f.submit %>
+
+  </table>
+  <div class="action offset-md-5">
+  <%= f.submit value:"Update grades" %>
   </div>
 <% end %>
