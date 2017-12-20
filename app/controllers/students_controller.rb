@@ -29,6 +29,12 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
+        @course.evaluations.each do |e|
+          g=Grade.new()
+          g.student=@student
+          g.evaluation=e 
+          g.save
+        end
         format.html { redirect_to [@course,@student], notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else

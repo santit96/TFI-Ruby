@@ -21,6 +21,7 @@
 </p>
 </div>
 
-
+<% if !@evaluation.grades.empty? %>
 <%= render 'set_grades', evaluation: @evaluation %>
-<%= link_to image_tag("back.png" , class:"backArrow", style:"margin-top:-2%;"), course_path(@course) %> 
+<%end%>
+<%= link_to image_tag("back.png" , class:"backArrow", style:"margin-top:-1%;"), course_path(@course) %> 

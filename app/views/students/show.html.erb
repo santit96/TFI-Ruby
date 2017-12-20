@@ -1,29 +1,33 @@
 <p id="notice"><%= notice %></p>
-
+<div class="infoEvaluation">
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
 </p>
-
+</div>
+<div class="infoEvaluation">
 <p>
   <strong>Lastname:</strong>
   <%= @student.lastname %>
 </p>
-
+</div>
+<div class="infoEvaluation">
 <p>
   <strong>Dni:</strong>
   <%= @student.dni %>
 </p>
-
+</div>
+<div class="infoEvaluation">
 <p>
   <strong>Number:</strong>
   <%= @student.number %>
 </p>
-
+</div>
+<div class="infoEvaluation">
 <p>
   <strong>Course:</strong>
-  <%= @student.course %>
+  <%= @student.course.name %>
 </p>
-
-<%= link_to 'Edit', edit_course_student_path(@student) %> |
-<%= link_to 'Back', course_students_path %>
+</div>
+<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_student_path(@student) %>
+<%= link_to image_tag("back.png" , class:"backArrow"),  course_students_path(@course,@student) %>
