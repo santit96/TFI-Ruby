@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   		member do
   			get 'set_grades'
   		end
-  		resources :grades
+  		resources :grades , except:[:show, :index, :destroy]
   	end
   	resources :students 
   end

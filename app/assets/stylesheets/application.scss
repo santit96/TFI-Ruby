@@ -131,6 +131,14 @@ a:hover{
 	text-decoration: none;
 }
 
+.evaluationData  {
+	color:red;
+	display: inline-block;
+}
+.evaluationData  strong{
+	color:white;
+}
+
 .newEvaluation{
 	float:right;
 	font-size: 20px;
@@ -142,6 +150,7 @@ a:hover{
 .infoEvaluation{
 	color:white;
 	font-size: 25px;
+	display: inline-block;
 }
 
 .newStudent{

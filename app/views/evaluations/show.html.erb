@@ -28,6 +28,28 @@
   <%= @evaluation.course.name %>
 </p>
 </div>
+<div class="evaluationData offset-md-3">
+<p>
+  <strong>Approved students:</strong>
+  <%= @evaluation.approved_count %>
+</p>
+
+<p>
+  <strong>Disapproved students:</strong>
+  <%= @evaluation.disapproved_count %>
+</p>
+
+<p>
+  <strong>Absent students:</strong>
+  <%= @evaluation.absent_count%>
+</p>
+
+<p>
+  <strong>Approved percentage:</strong>
+  <%= @evaluation.approved_percentage %>%
+</p>
+</div>
+
 
 <% if !@evaluation.grades.empty? %>
 <%= render 'set_grades', evaluation: @evaluation %>
