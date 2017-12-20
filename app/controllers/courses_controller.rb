@@ -54,12 +54,15 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course.destroy
     respond_to do |format|
+    if @course.destroy
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
+    else
+      format.html { redirect_to courses_url,notice: "you can't delete a course with students or evaluations on it" }
     end
+    format.json { head :no_content }
   end
+end
 
   def grades
     set_course

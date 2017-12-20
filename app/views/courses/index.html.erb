@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 <a href="<%= new_course_path %>" class="newCourse col-md-3">  <%= image_tag("redplus.png",class:"newCourse-img ")%> New course</a>
 <h1 style="color:white">Courses</h1>
+
 <hr style="background-color: white"> 
 <div class="list-group "> 
   <% @courses.each do |course| %>  
+    <% if course.errors.any? %>
+      <div id="error_explanation">
+        <h4>The course couldn't be deleted </h4>
+          <p>you can't delete a course with students or evaluations on it</p>
+      </div>
+    <% end %>
     <div  class="list-group-item list-group-item-action course-elem"  >
       <a href="<%= course_path(course)%>" class="showCourse"><%= image_tag("ruby.png",class:"course-img ") %>
       <%= course.name %>
