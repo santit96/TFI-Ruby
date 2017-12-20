@@ -2,13 +2,15 @@ class Grade < ApplicationRecord
   belongs_to :student
   belongs_to :evaluation
   validates :student , uniqueness: {scope: :evaluation, message:"A student can't have two notes for the same evaluation"}
-
+  validates :grade , numericality: true
   
+
   def status(evaluation)
-  	if grade==-1 then
+  	if grade=="Absent" then
   		"-"
   	else
-  		grade >= evaluation.min_grade ? "Approved" : "Disapproved"
+  		grade.to_f >= evaluation.min_grade ? "Approved" : "Disapproved"
   	end
   end
+
 end

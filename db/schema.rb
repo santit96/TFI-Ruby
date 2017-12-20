@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171212221116) do
   create_table "grades", force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "evaluation_id", null: false
-    t.float "grade", default: -1.0, null: false
+    t.string "grade", default: "Absent", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["evaluation_id"], name: "index_grades_on_evaluation_id"

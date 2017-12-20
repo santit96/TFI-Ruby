@@ -14,12 +14,8 @@
        <td >      
         <%= grades_form.object.student.dni %>
       </td>
-      <td >
-        <% if grades_form.object.grade == -1 %>
-          <%= grades_form.text_field :grade , value: "Absent"  %>  
-        <%else%>
+      <td>
           <%= grades_form.text_field :grade  %>
-        <%end%>
       </td>
     </tr>
     <% end %>

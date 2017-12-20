@@ -16,8 +16,13 @@
 		<td><%= student.name %></td>
 		<td><%= student.dni %></td>
 		<% @course.evaluations.each do |evaluation| %>
+		<% if evaluation.grades.detect{|g| g.student==student}.nil? %>
+		<td>Ausente</td>
+		<td>-</td>
+		<% else %>
 		<td><%= evaluation.grades.detect{|g| g.student==student}.grade %></td>
 		<td><%= evaluation.status(student) %> </td>
+		<% end %>
 		<% end %>
 	</tr>
 	<% end %>

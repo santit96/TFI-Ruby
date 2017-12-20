@@ -3,7 +3,7 @@ class Evaluation < ApplicationRecord
   has_many :grades
   accepts_nested_attributes_for :grades
   validates :name , uniqueness: {scope: :course , message:"Can't be the same evaluation twice in a course"}
-
+  validates :min_grade ,  numericality: { greater_than: 0 }
   def status(student)
   	grades.detect{|g| g.student==student}.status(self)
   end
