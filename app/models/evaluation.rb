@@ -34,7 +34,7 @@ class Evaluation < ApplicationRecord
 
   def approved_percentage
     begin
-      ((approved_count * 100) / (grades.count)).to_s
+      ((approved_count * 100) / (grades.count))
     rescue ZeroDivisionError
       "There are no students in this course"
     end

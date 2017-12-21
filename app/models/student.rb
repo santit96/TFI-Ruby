@@ -11,6 +11,6 @@ class Student < ApplicationRecord
           g.student_id=id
           g.evaluation=e 
           g.save
-       end
+      end
   end
 end

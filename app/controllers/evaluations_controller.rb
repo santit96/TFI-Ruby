@@ -63,7 +63,7 @@ class EvaluationsController < ApplicationController
     respond_to do |format|
     if @evaluation.destroy
     
-      format.html { redirect_to course_evaluations_url, notice: 'Evaluation was successfully destroyed.' }
+      format.html { redirect_to course_url(@course), notice: 'Evaluation was successfully destroyed.' }
       format.json { head :no_content }
     else
      

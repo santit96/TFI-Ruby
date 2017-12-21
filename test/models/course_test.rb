@@ -6,7 +6,7 @@ class CourseTest < ActiveSupport::TestCase
   # end
 
   test "should create course" do
-  	c=Course.new name:"Ruby" , year:2018
+    c=Course.new name:"Ruby" , year:2018
   	assert_equal(true,c.save)
   	assert_equal("Ruby",c.name)	
   	assert_equal(2018,c.year)		
@@ -34,4 +34,5 @@ class CourseTest < ActiveSupport::TestCase
   	e.destroy
   	c.destroy
   end
+
 end
