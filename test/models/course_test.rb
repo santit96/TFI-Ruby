@@ -14,8 +14,8 @@ class CourseTest < ActiveSupport::TestCase
   end
 
    test "should not create course, name and year must be unique" do
-  	c=Course.new name:"Ruby" , year:2017
-  	d=Course.new name:"Ruby" , year:2017
+  	c=Course.new name:"Ruby" , year:Date.today.year
+  	d=Course.new name:"Ruby" , year:Date.today.year
   	c.save
   	assert_equal(false,d.save)	
   	d.destroy
