@@ -1,9 +1,10 @@
-#**Trabajo final Ruby 2017**
+#Trabajo final Ruby 2017
 La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una catedra
 
 **Aclaración: esta documentacion es válida para SO Ubuntu u otros derivados de debian, para otras distribuciones o SO podría no funcionar**
 
-##**Preparacion del ambiente:**
+##Preparacion del ambiente:
+
 	.Luego de hacer el git clone se debe chequar tener instalado bundler.
 	.Si no se tiene instalado se ejecuta "gem install bundler" en la consola
 	
@@ -19,7 +20,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 
 	Si se quiere precargar la base de datos para que contenga informacion desde el inicio sin tener que cargarla a mano se puede ejecutar "rails db:seed" y asi se insertarán todos los datos definidos en el archivo seeds.rb.
 
-##**Puesta en ejecucion:**
+##Puesta en ejecucion:
 
 	Parados sobre el directorio del proyecto se ejecuta "rails server", eso pondrá en ejecución la aplicacion en localhost puerto 3000.
 	La primera vez que ponemos en funcionamiento el server puede fallar ya sea por no haber instalado sqlite3 o tambiíen puede generar problemas la dependencia con la gema nodejs, para solucionar esto se debe instalar dicha gema,
@@ -27,7 +28,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 	Luego de seguir estos pasos (se supone) ya se puede utilizar la aplicacion en 
 	http://localhost:3000
 
-##**Testing:**
+##Testing:
 	
 	Para ejecutar los test se ejecuta sobre el directorio del proyecto "rails test test/models/modeloATestear_test.rb "
 	Los test de los controllers fallan por el problema con la gema **devise**, que el grupo de desarrollo del proyecto no pudo solucionar.
