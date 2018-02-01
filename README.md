@@ -26,8 +26,13 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 	Parados sobre el directorio del proyecto se ejecuta "rails server", eso pondrá en ejecución la aplicacion en localhost puerto 3000.
 	La primera vez que ponemos en funcionamiento el server puede fallar ya sea por no haber instalado sqlite3 o tambiíen puede generar problemas la dependencia con la gema nodejs, para solucionar esto se debe instalar dicha gema,
 
-	Luego de seguir estos pasos (se supone) ya se puede utilizar la aplicacion en 
+	Luego de seguir estos pasos ya se puede utilizar la aplicacion en 
 	http://localhost:3000
+	El seeds provee un usuario por defecto para utilizar la aplicacion:
+		email de usuario: prueba@ruby.com
+		password: 1234567
+
+
 
 **Testing:**
 	

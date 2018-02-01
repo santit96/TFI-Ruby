@@ -24,3 +24,5 @@ c2.students.each{|s|
 	c2.evaluations.each{|e|
 	Grade.create(student_id:s.id,evaluation_id:e.id )}
 }
+
+User.create(email:"prueba@ruby.com", password:"1234567",created_at:Date.today,updated_at:Date.today)
