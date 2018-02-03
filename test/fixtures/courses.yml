@@ -1,9 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  year: 1
-  name: MyString
+  year: 2018
+  name: Ruby
 
 two:
-  year: 1
-  name: MyString
+  year: 2019
+  name: Ruby
+
+
+three:
+  year: 2020
+  name: Ruby

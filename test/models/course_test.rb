@@ -1,38 +1,32 @@
-#require 'test_helper'
+require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  setup do
+    @course = courses(:one)
+  end
 
   test "should create course" do
-    c=Course.new name:"Ruby" , year:2018
-  	assert_equal(true,c.save)
-  	assert_equal("Ruby",c.name)	
-  	assert_equal(2018,c.year)		
-  	c.destroy
+   	assert_difference("Course.count") do
+      course= Course.create(name:"Catedra",year:Date.today.year)
+    end
   end
 
-   test "should not create course, name and year must be unique" do
-  	c=Course.new name:"Ruby" , year:Date.today.year
-  	d=Course.new name:"Ruby" , year:Date.today.year
-  	c.save
-  	assert_equal(false,d.save)	
-  	d.destroy
-  	c.destroy
+   test "Course name must be unique in a year" do
+  	d=Course.create name:@course.name , year:@course.year
+  	
+    refute d.valid?
+    assert_includes d.errors[:name], "Shouldn't be the same course twice in a year" 
   end
-  test "should not crete course with a year from the past" do
-  		c=Course.new name:"Chaul" , year:2014
-  		assert_equal(false,c.save)
+  test "should not create course with a year from the past" do
+  		c=Course.create name:"Chaul" , year:2014
+  		refute c.valid?
+      assert_includes c.errors[:year], "must be greater than #{1.years.ago.year}"
+
   end
   test "should not destroy course with evaluations" do
-  	c=Course.new name:"no destruir" , year:2017
-  	c.save
-  	e=Evaluation.new name: "ev1" ,date:Date.today, min_grade:4 , course_id:c.id
-  	e.save
-  	assert_equal(c.destroy,false)	
-  	e.destroy
-  	c.destroy
+  	refute @course.destroy
+    assert_includes @course.errors[:base], "Cannot delete record because dependent students exist"
   end
 
 end

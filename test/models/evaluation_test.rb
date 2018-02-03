@@ -1,41 +1,24 @@
-#require 'test_helper'
+require 'test_helper'
 
 class EvaluationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-	test "should not create, evaluation year must be greater or equal than curse year" do
-		c=Course.new(name:"Evalluation",year:Date.today.year)
-		c.save
-		e=Evaluation.new(name:"PruebaEval2",date:1.year.ago,min_grade:4,course:c)
-		assert_equal(false,e.save)
-		e.destroy
-		c.destroy
+
+	setup do
+    	@course = courses(:one)
+    	@evaluation = evaluations(:one)
+  	end
+
+	test "should not create, evaluation year must be greater or equal than course year" do
+		e=Evaluation.new(name:"PruebaEval2",date:'2014-01-01',min_grade:4,course:@course)
+		refute e.save
 	end
 
 	test "should not destroy when evaluation has grades" do
-		c=Course.new(name:Course.last.name+"a",year:Date.today.year)
-		e=Evaluation.new(name:"Evas3",date:Date.today,min_grade:4,course:c)
-		s=Student.new(name:"stud8",lastname:"d",dni:143,number:1125,course:c)
-		e.save
-		s.save
-		assert_equal(false,e.destroy)
-		s.destroy
-		e.destroy
-		assert_not_equal(Evaluation.last,e)
-		c.destroy
+		assert_equal(false,@evaluation.destroy)
 	end
 
-	test "should not create two evaluation with same name and course" do
-			c=Course.new(name:Course.last.name+"a",year:Date.today.year)
-			c.save
-			e1=Evaluation.new(name:"Evas3",date:Date.today,min_grade:4,course:c)
-			e2=Evaluation.new(name:"Evas3",date:Date.tomorrow,min_grade:4,course:c)
-			e1.save
+	test "should not be two evaluation with same name and course" do
+			e2=Evaluation.new(name:@evaluation.name,date:'2018-05-02',min_grade:4,course:@evaluation.course)
 			assert_equal(false,e2.save)
-			e1.destroy
-			e2.destroy
-			c.destroy
 	end
 
 	test "should approve student" do

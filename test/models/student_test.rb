@@ -1,9 +1,7 @@
-#require 'test_helper'
+require 'test_helper'
 
 class StudentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
     
   test "should create grade per evaluation when creating a student" do
   	course = Course.new(name:"cursito",year:Date.today.year)

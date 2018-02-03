@@ -1,15 +1,28 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  lastname: MyString
+  name: Estudiante
+  lastname: 1
   dni: 1
-  number: MyString
+  number: 1
   course: one
 
 two:
-  name: MyString
-  lastname: MyString
-  dni: 1
-  number: MyString
+  name: Estudiante
+  lastname: 2
+  dni: 2
+  number: 2
+  course: two
+
+three:
+  name: Estudiante
+  lastname: 3
+  dni: 3
+  number: 3
+  course: two
+
+four:
+  name: Estudiante
+  lastname: 4
+  dni: 4
+  number: 4
   course: two

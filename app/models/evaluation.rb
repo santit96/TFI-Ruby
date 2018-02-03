@@ -20,7 +20,7 @@ class Evaluation < ApplicationRecord
 
 
   def approved_count
-    grades.select {|g| g.status(self)=="Approved" }.count
+    grades.where("grade >= #{min_grade}").count
   end
 
   def disapproved_count

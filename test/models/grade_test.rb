@@ -1,9 +1,6 @@
-#require 'test_helper'
+require 'test_helper'
 
 class GradeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   test "when a grade is created its value should be Absent by default" do
   	c=Course.new(name:"garaed",year:Date.today.year)

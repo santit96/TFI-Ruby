@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-c1=Course.create(name: "Ruby",year:"2017",updated_at:Date.today,created_at:Date.today)
+c1=Course.create(name: "Ruby",year:"2019",updated_at:Date.today,created_at:Date.today)
 c2=Course.create(name: "Ruby",year:"2018",updated_at:Date.today,created_at:Date.today)
 10.times do |i|
 	Student.create(name:"Estudiante #{i}",lastname:"Universitario", dni:38670800+i,number:i,updated_at:Date.today,created_at:Date.today,course_id:[c1.id,c2.id].sample)

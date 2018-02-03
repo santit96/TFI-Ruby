@@ -15,7 +15,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 
 **Base de Datos:**
 
-	Se utiliza sqlite3 como gestor de base de datos, por lo que se lo debe tenerlo instalado (se puede instalar desde consola con apt-get install sqlite3), y para evitar futuros errores en la inicialización del servidor tambien es bueno instalar la gema (https://rubygems.org/gems/sqlite3/versions/1.3.11?locale=es)
+	Se utiliza mysql como gestor de base de datos, por lo que se lo debe tenerlo instalado, y para evitar futuros errores en la inicialización del servidor tambien es bueno instalar la gema (https://rubygems.org/gems/mysql2/versions/0.4.4)
 
 	Luego de que se haya ejecutado correctamente bundle install y de tener funcionando sqlite podemos ejecutar sobre el directorio del proyecto "rails db:create db migrate" para crear la base de datos y las tablas correspondientes.
 
@@ -24,7 +24,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 **Puesta en ejecucion:**
 
 	Parados sobre el directorio del proyecto se ejecuta "rails server", eso pondrá en ejecución la aplicacion en localhost puerto 3000.
-	La primera vez que ponemos en funcionamiento el server puede fallar ya sea por no haber instalado sqlite3 o tambiíen puede generar problemas la dependencia con la gema nodejs, para solucionar esto se debe instalar dicha gema,
+	La primera vez que ponemos en funcionamiento el server puede fallar ya sea por no haber instalado mysql o tambiíen puede generar problemas la dependencia con la gema nodejs, para solucionar esto se debe instalar dicha gema.
 
 	Luego de seguir estos pasos ya se puede utilizar la aplicacion en 
 	http://localhost:3000

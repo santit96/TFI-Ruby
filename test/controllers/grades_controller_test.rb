@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class GradesControllerTest < ActionDispatch::IntegrationTest
+  
   setup do
     @grade = grades(:one)
   end
