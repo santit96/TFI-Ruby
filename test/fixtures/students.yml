@@ -11,14 +11,14 @@ two:
   lastname: 2
   dni: 2
   number: 2
-  course: two
+  course: one
 
 three:
   name: Estudiante
   lastname: 3
   dni: 3
   number: 3
-  course: two
+  course: one
 
 four:
   name: Estudiante

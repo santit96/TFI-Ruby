@@ -7,7 +7,7 @@ class CourseTest < ActiveSupport::TestCase
   end
 
   test "should create course" do
-   	assert_difference("Course.count") do
+   	  assert_difference("Course.count") do
       course= Course.create(name:"Catedra",year:Date.today.year)
     end
   end

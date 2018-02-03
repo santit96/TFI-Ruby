@@ -9,3 +9,9 @@ two:
   date: 2018-03-12
   min_grade: 5
   course: two
+
+three:
+  name: Tercer Fecha
+  date: 2018-04-12
+  min_grade: 5
+  course: one

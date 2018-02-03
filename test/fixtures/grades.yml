@@ -5,5 +5,10 @@ one:
 
 two:
   student: two
-  evaluation: two
-  grade: 1.5
+  evaluation: one
+  grade: 8
+
+three:
+  student: three
+  evaluation: one
+  grade: 8

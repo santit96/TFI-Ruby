@@ -10,80 +10,49 @@ class EvaluationTest < ActiveSupport::TestCase
 	test "should not create, evaluation year must be greater or equal than course year" do
 		e=Evaluation.new(name:"PruebaEval2",date:'2014-01-01',min_grade:4,course:@course)
 		refute e.save
+		assert_includes e.errors[:date], "must be greater than course year"
 	end
 
 	test "should not destroy when evaluation has grades" do
-		assert_equal(false,@evaluation.destroy)
+		refute @evaluation.destroy
+		assert_includes @evaluation.errors[:base], "Cannot delete record because dependent grades exist"
 	end
 
 	test "should not be two evaluation with same name and course" do
-			e2=Evaluation.new(name:@evaluation.name,date:'2018-05-02',min_grade:4,course:@evaluation.course)
-			assert_equal(false,e2.save)
+			e2=Evaluation.create(name:@evaluation.name,date:'2018-05-02',min_grade:4,course:@evaluation.course)
+			refute e2.valid?
+			assert_includes e2.errors[:name], "Can't be the same evaluation twice in a course"
 	end
 
 	test "should approve student" do
-		c=Course.new(name:Course.last.name+"a",year:Date.today.year)
-		e=Evaluation.new(name:"111",date:Date.today,min_grade:4,course:c)
-		s=Student.new(name:"stud8",lastname:"d",dni:143,number:1125,course:c)
-		c.save
-		e.save
-		s.save
-		grade=s.grades.detect{|g| g.evaluation==e}
+		s=Student.create(name:"stud8",lastname:"d",dni:143,number:1125,course:@course)
+		grade=s.grades.detect{|g| g.evaluation==@evaluation}
 		assert_equal("Absent",grade.grade)
 		grade.grade=8
 		grade.save
-		assert_equal("Approved",e.status(s))
-		s.destroy
-		e.destroy
-		c.destroy
+		assert_equal("Approved",@evaluation.status(s))
 	end
 
-	test "should disapproved student" do 
-		c=Course.new(name:Course.last.name+"a",year:Date.today.year)
-		e=Evaluation.new(name:"Evs3",date:Date.today,min_grade:4,course:c)
-		s=Student.new(name:"stud8",lastname:"d",dni:143,number:1125,course:c)
-		c.save
-		e.save
-		s.save
-		grade=s.grades.detect{|g| g.evaluation==e}
+	test "should disapproved student" do 	
+		s=Student.create(name:"stud8",lastname:"d",dni:143,number:1125,course:@course)
+		grade=s.grades.detect{|g| g.evaluation==@evaluation}
 		assert_equal("Absent",grade.grade)
 		grade.grade=2
 		grade.save
-		assert_equal("Disapproved",e.status(s))
-		s.destroy
-		e.destroy
-		c.destroy
+		assert_equal("Disapproved",@evaluation.status(s))
 	end
 
 	test "number of grades resume must be correct" do
-		c=Course.new(name:Course.last.name+"a",year:Date.today.year)
-		e=Evaluation.new(name:"Evvv",date:Date.today,min_grade:4,course:c)
-		s1=Student.new(name:"stud1",lastname:"d",dni:1,number:13,course:c)
-		s2=Student.new(name:"stud2",lastname:"d",dni:13,number:12,course:c)
-		s3=Student.new(name:"stud3",lastname:"d",dni:1222,number:10,course:c)
-		c.save
-		e.save
-		s1.save
-		s2.save
-		s3.save
-		grade1=s1.grades.detect{|g| g.evaluation==e}
-		grade2=s2.grades.detect{|g| g.evaluation==e}
-		grade3=s3.grades.detect{|g| g.evaluation==e}
-		grade1.grade=9
-		grade1.save
-		grade2.grade=8
-		grade2.save
-		grade3.grade=1
-		grade3.save
-		assert_equal(2,e.approved_count)
-		assert_equal(1,e.disapproved_count)
-		assert_equal(0,e.absent_count)
-		assert_equal(66,e.approved_percentage)
-		s1.destroy
-		s2.destroy
-		s3.destroy
-		e.destroy
-		c.destroy
+		s1= students(:one)
+		s2= students(:two)
+		s3= students(:three)
+		grade1= grades(:one)
+		grade2= grades(:two)
+		grade3= grades(:three)
+		assert_equal(2,@evaluation.approved_count)
+		assert_equal(1,@evaluation.disapproved_count)
+		assert_equal(0,@evaluation.absent_count)
+		assert_equal(66,@evaluation.approved_percentage)
 	end
 	
 end
