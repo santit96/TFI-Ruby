@@ -41,7 +41,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy course" do
-    @course1 = courses(:three)
+    @course1 = courses(:without_evaluations)
     assert_difference('Course.count', -1) do
       delete course_path(@course1)
     end

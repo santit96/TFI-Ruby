@@ -3,7 +3,6 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   fixtures :all
- 
 end
 
 module ActionDispatch

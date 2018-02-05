@@ -25,4 +25,11 @@ four:
   lastname: 4
   dni: 4
   number: 4
-  course: two
+  course: one
+
+five:
+  name: Estudiante
+  lastname: 5
+  dni: 5
+  number: 5
+  course: one

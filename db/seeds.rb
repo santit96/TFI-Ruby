@@ -12,7 +12,7 @@ c2=Course.create(name: "Ruby",year:"2018",updated_at:Date.today,created_at:Date.
 
 end
 3.times do |i|
-Evaluation.create(min_grade:4,course_id:c1.id, name: "Fecha #{i}",date:'2017-12-25',updated_at:Date.today,created_at:Date.today)
+Evaluation.create(min_grade:4,course_id:c1.id, name: "Fecha #{i}",date:Date.today,updated_at:Date.today,created_at:Date.today)
 Evaluation.create(min_grade:6,course_id:c2.id, name: "Fecha #{i}",date:Date.tomorrow,updated_at:Date.today,created_at:Date.today)
 
 end

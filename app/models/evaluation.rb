@@ -2,14 +2,14 @@ class Evaluation < ApplicationRecord
   belongs_to :course
   has_many :grades , dependent: :restrict_with_error
   accepts_nested_attributes_for :grades
-  validates :name , uniqueness: {scope: :course , message:"Can't be the same evaluation twice in a course"}
-  validates :min_grade ,  numericality: { greater_than: 0}
-  before_save :validates_date
+  validates :name ,presence: true, uniqueness: {scope: :course , message:"Can't be the same evaluation twice in a course"}
+  validates :date ,presence: true
+  validates :min_grade ,presence:true, numericality: { greater_than: 0}
+  validate :validates_date
 
   def validates_date
-  	if self.date.year < course.year then
-  		self.errors.add(:date,"must be greater than course year")
-  		throw :abort
+  	if date.year < course.year then
+  		errors.add(:date,"must be greater than course year")
   	end
   end
 
