@@ -5,13 +5,13 @@ class Evaluation < ApplicationRecord
   validates :name ,presence: true, uniqueness: {scope: :course , message:"Can't be the same evaluation twice in a course"}
   validates :date ,presence: true
   validates :min_grade ,presence:true, numericality: { greater_than: 0}
- # validate :validates_date
+  validate :validates_date
 
-  #def validates_date
-  #	if :date.year < :course.year then
-  #		errors.add(:date,"must be greater than course year")
-  #	end
-  #end
+  def validates_date
+  	if date.year < course.year then
+  		errors.add(:date,"must be greater than course year")
+  	end
+  end
 
   def status(student)
   	grades.detect{|g| g.student==student}.status(self)
