@@ -4,12 +4,11 @@
 <h2 style="color:white; text-align: center;margin-bottom: 2%;">Grades resume</h2>
 
 <table class="table table-light">
-	<tr>
+	<tr style="background-color: grey">
 		<th>Student</th>
 		<th>Dni</th>
 		<% @course.evaluations.each do |evaluation| %>
-		<th><%= evaluation.name %></th>
-		<th>Status <%= evaluation.name %></th>
+		<th colspan="2"><%= evaluation.name %></th>
 		<% end %> 
 	</tr>
 	<% @course.students.each do |student| %>
@@ -24,5 +23,29 @@
 		<% end %>
 	</tr>
 	<% end %>
+	<tr>
+		<th colspan="2">Approved count</th>
+		<% @course.evaluations.each do |evaluation| %>
+			<td colspan="2"><%= evaluation.approved_count %></td>		
+		<% end %>
+	</tr>
+	<tr>
+		<th colspan="2">Disapproved count</th>
+		<% @course.evaluations.each do |evaluation| %>
+			<td colspan="2"><%= evaluation.disapproved_count %></td>		
+		<% end %>
+	</tr>
+	<tr>
+		<th colspan="2">Absent count</th>
+		<% @course.evaluations.each do |evaluation| %>
+			<td colspan="2"><%= evaluation.absent_count %></td>		
+		<% end %>
+	</tr>
+	<tr>
+		<th colspan="2">Approved percentage</th>
+		<% @course.evaluations.each do |evaluation| %>
+			<td colspan="2"><%= evaluation.approved_percentage %>%</td>		
+		<% end %>
+	</tr>
 </table>
 <%= link_to image_tag("back.png" , class:"backArrow "), course_path(@course) %>

@@ -10,17 +10,17 @@ class GradeTest < ActiveSupport::TestCase
     @evaluation = evaluations(:one)
   end
 
-  test "when a grade is created its value should be Absent by default" do
+  test "when a grade is created its value should be null by default" do
   	g=Grade.create(student:@student,evaluation:@evaluation)
-  	assert_equal("Absent",g.grade)
+  	assert g.grade.nil?
   end
 
-  test "A grade's grade should be only a number or absent" do
+  test "A grade's grade should be only a number or nil" do
     assert_difference("Grade.count") do
-      Grade.create(student:@student,evaluation:@evaluation,grade:"Absent")
+      Grade.create(student:@student,evaluation:@evaluation,grade:1)
     end
-    assert_difference("Grade.count",0) do
-      Grade.create(student:@student2,evaluation:@evaluation,grade:"Aokjiji")
+    assert_difference("Grade.count") do
+      Grade.create(student:@student2,evaluation:@evaluation)
     end
   end
 
@@ -35,7 +35,7 @@ class GradeTest < ActiveSupport::TestCase
 
   test "should create a grade per evaluation when a student is created" do 
      assert_difference("Grade.count") do
-      Student.create(name:"hola",lastname:"chau",dni:999,number:999,course:@course_with_one_evaluation)
+      Student.create(name:"hola",email:"s@s.s",lastname:"chau",dni:999,number:999,course:@course_with_one_evaluation)
     end
   end
 end

@@ -25,34 +25,36 @@ class EvaluationTest < ActiveSupport::TestCase
 	end
 
 	test "should approve student" do
-		s=Student.create(name:"stud8",lastname:"d",dni:143,number:1125,course:@course)
+		s=Student.create(name:"stud8",lastname:"d",dni:143,email:"s@s.s",number:1125,course:@course)
 		grade=s.grades.detect{|g| g.evaluation==@evaluation}
-		assert_equal("Absent",grade.grade)
+		assert grade.grade.nil?
 		grade.grade=8
 		grade.save
 		assert_equal("Approved",@evaluation.status(s))
 	end
 
 	test "should disapproved student" do 	
-		s=Student.create(name:"stud8",lastname:"d",dni:143,number:1125,course:@course)
+		s=Student.create(name:"stud8",lastname:"d",dni:143,email:"s@s.s",number:1125,course:@course)
 		grade=s.grades.detect{|g| g.evaluation==@evaluation}
-		assert_equal("Absent",grade.grade)
+		assert grade.grade.nil?
 		grade.grade=2
 		grade.save
 		assert_equal("Disapproved",@evaluation.status(s))
 	end
 
-	test "number of grades resume must be correct" do
-		s1= students(:one)
-		s2= students(:two)
-		s3= students(:three)
-		grade1= grades(:one)
-		grade2= grades(:two)
-		grade3= grades(:three)
+	test "number of approved students must be correct" do
 		assert_equal(2,@evaluation.approved_count)
-		assert_equal(1,@evaluation.disapproved_count)
-		assert_equal(0,@evaluation.absent_count)
-		assert_equal(66,@evaluation.approved_percentage)
 	end
 	
+	test "number of dispproved students must be correct" do
+		assert_equal(1,@evaluation.disapproved_count)
+	end
+
+	test "number of absent students must be correct" do
+		assert_equal(0,@evaluation.absent_count)
+	end
+
+	test "approved percentage must be correct" do
+		assert_equal(66,@evaluation.approved_percentage)
+	end
 end

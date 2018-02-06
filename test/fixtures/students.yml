@@ -5,6 +5,7 @@ one:
   dni: 1
   number: 1
   course: one
+  email: estudiante1@test.com
 
 two:
   name: Estudiante
@@ -12,6 +13,7 @@ two:
   dni: 2
   number: 2
   course: one
+  email: estudiante2@test.com
 
 three:
   name: Estudiante
@@ -19,6 +21,7 @@ three:
   dni: 3
   number: 3
   course: one
+  email: estudiante3@test.com
 
 four:
   name: Estudiante
@@ -26,6 +29,7 @@ four:
   dni: 4
   number: 4
   course: one
+  email: estudiante4@test.com
 
 five:
   name: Estudiante
@@ -33,3 +37,4 @@ five:
   dni: 5
   number: 5
   course: one
+  email: estudiante5@test.com

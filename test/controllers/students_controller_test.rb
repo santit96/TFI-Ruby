@@ -20,7 +20,7 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create student" do
     assert_difference('Student.count') do
-      post course_students_path(@course , student: { course_id: @student.course_id, dni: @student.dni + 80, lastname: @student.lastname, name: @student.name, number: @student.number + '80'})
+      post course_students_path(@course , student: { course_id: @student.course_id, dni: @student.dni + 80, lastname: @student.lastname,email:"s@s.s", name: @student.name, number: @student.number + '80'})
     end
 
     assert_redirected_to course_student_path(@course,Student.last)
