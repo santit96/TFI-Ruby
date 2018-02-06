@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171212221116) do
   create_table "grades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "student_id", null: false
     t.bigint "evaluation_id", null: false
-    t.string "grade", default: "Absent", null: false
+    t.float "grade", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["evaluation_id"], name: "index_grades_on_evaluation_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171212221116) do
     t.string "lastname", null: false
     t.integer "dni", null: false
     t.string "number", limit: 25, null: false
+    t.string "email", null: false
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

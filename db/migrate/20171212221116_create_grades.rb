@@ -3,7 +3,7 @@ class CreateGrades < ActiveRecord::Migration[5.1]
     create_table :grades do |t|
       t.references :student, foreign_key: true , null: false
       t.references :evaluation, foreign_key: true , null: false
-      t.string :grade , null: false , default: "Absent"
+      t.float :grade , null: true
 
       t.timestamps
     end

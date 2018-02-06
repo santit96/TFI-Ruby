@@ -11,6 +11,7 @@
       <th class="col-md-2">Lastname</th>
       <th class="col-md-2">Dni</th>
       <th class="col-md-2">Number</th>
+      <th class="col-md-2">Email</th>
       <th class="col-md-2">Course</th>
       <th colspan="2"></th>
     </tr>
@@ -23,6 +24,7 @@
         <td><%= student.lastname %></td>
         <td><%= student.dni %></td>
         <td><%= student.number %></td>
+        <td><%= student.email  %></td>
         <td><%= student.course.name  %></td>
         <td><%= link_to image_tag("edit.png", class:"del-student-img"), edit_course_student_path(student.course,student) %></td>
         <td>

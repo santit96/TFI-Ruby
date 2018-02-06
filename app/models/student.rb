@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   validates :number , uniqueness: {scope: :course , message:"Can't be the same student twice in a course"}
   validates :name ,presence: true 
   validates :lastname , presence:true
+  validates :email , presence:true
   after_save :create_grade
 
   def create_grade
