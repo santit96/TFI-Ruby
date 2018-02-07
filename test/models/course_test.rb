@@ -16,17 +16,17 @@ class CourseTest < ActiveSupport::TestCase
   	d=Course.create name:@course.name , year:@course.year
   	
     refute d.valid?
-    assert_includes d.errors[:name], "Shouldn't be the same course twice in a year" 
+    refute d.errors[:name].empty?
   end
   test "should not create course with a year from the past" do
   		c=Course.create name:"Chaul" , year:2014
   		refute c.valid?
-      assert_includes c.errors[:year], "must be greater than #{1.years.ago.year}"
+      refute c.errors[:year].empty?
 
   end
   test "should not destroy course with evaluations" do
   	refute @course.destroy
-    assert_includes @course.errors[:base], "Cannot delete record because dependent students exist"
+    refute @course.errors[:base].empty?
   end
 
 end

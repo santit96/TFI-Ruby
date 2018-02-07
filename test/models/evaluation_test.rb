@@ -8,20 +8,20 @@ class EvaluationTest < ActiveSupport::TestCase
   	end
 
 	test "should not create, evaluation year must be greater or equal than course year" do
-		e=Evaluation.new(name:"PruebaEval2",date:'2014-01-01',min_grade:4,course:@course)
-		refute e.save
-		assert_includes e.errors[:date], "must be greater than course year"
+		e=Evaluation.create(name:"PruebaEval2",date:'2014-01-01',min_grade:4,course:@course)
+		refute e.valid?
+		refute e.errors[:date].empty?
 	end
 
 	test "should not destroy when evaluation has grades" do
 		refute @evaluation.destroy
-		assert_includes @evaluation.errors[:base], "Cannot delete record because dependent grades exist"
-	end
+		refute @evaluation.errors[:base].empty?
+		end
 
 	test "should not be two evaluation with same name and course" do
 			e2=Evaluation.create(name:@evaluation.name,date:'2018-05-02',min_grade:4,course:@evaluation.course)
 			refute e2.valid?
-			assert_includes e2.errors[:name], "Can't be the same evaluation twice in a course"
+			refute e2.errors[:name].empty?
 	end
 
 	test "should approve student" do
