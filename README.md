@@ -7,6 +7,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 **Preparacion del ambiente:**
 
 	* Version de ruby 2.3.3
+	* Version de rails 5.1.4
 	* Luego de hacer el git clone se debe chequar tener instalado bundler.
 	* Si no se tiene instalado se ejecuta "gem install bundler" en la consola
 	
