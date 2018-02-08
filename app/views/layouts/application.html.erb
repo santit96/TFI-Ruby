@@ -11,7 +11,9 @@
 
   <body >
     <nav class="navbar navbar-dark bg-dark navBar">
-      <h4> Ruby - course management</h4>
+      <%= link_to "/" do %>
+        <h4>Ruby - course management</h4>
+      <% end %>
       <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
     </nav>
 
