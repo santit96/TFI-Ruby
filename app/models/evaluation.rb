@@ -29,7 +29,7 @@ class Evaluation < ApplicationRecord
 
 
   def absent_count
-    grades.select {|g| g.status(self)=="-"  }.count
+    grades.select {|g| g.status(self)=="Absent"  }.count
   end
 
   def approved_percentage
