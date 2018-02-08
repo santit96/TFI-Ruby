@@ -1,4 +1,4 @@
-#Trabajo final Ruby 2017
+# Trabajo final Ruby 2017
 
 La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una catedra
 
