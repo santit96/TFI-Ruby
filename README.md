@@ -6,7 +6,7 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 
 **Preparacion del ambiente:**
 
-	* Ruby version ruby 2.3.3
+	* Version de ruby 2.3.3
 	* Luego de hacer el git clone se debe chequar tener instalado bundler.
 	* Si no se tiene instalado se ejecuta "gem install bundler" en la consola
 	
@@ -32,8 +32,8 @@ La primera vez que ponemos en funcionamiento el server puede fallar ya sea por n
 Luego de seguir estos pasos ya se puede utilizar la aplicacion en 
 http://localhost:3000
 El seeds provee un usuario por defecto para utilizar la aplicacion:
-	email de usuario: prueba@ruby.com
-	password: 1234567
+	* email de usuario: prueba@ruby.com
+	* password: 1234567
 
 
 
