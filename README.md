@@ -8,12 +8,12 @@ La aplicacion provee un gestor de cursos, alumnos evaluaciones y notas para una 
 
 	* Version de ruby 2.3.3
 	* Version de rails 5.1.4
-	* Luego de hacer el git clone se debe chequar tener instalado bundler.
+	* Luego de hacer el git clone se debe chequear tener instalado bundler.
 	* Si no se tiene instalado se ejecuta "gem install bundler" en la consola
 	
 Luego se debe ejecutar en consola "bundle install" estando situados dentro del directorio donde se encuentra el proyecto clonado
 
-En este punto es muy comun instalacion de la gema "nokogiri", para solucionar esto debemos instalar nokogiri previamente (http://www.nokogiri.org/tutorials/installing_nokogiri.html).
+En este punto es muy comun un error en la instalacion de la gema "nokogiri", para solucionar esto debemos instalar nokogiri previamente (http://www.nokogiri.org/tutorials/installing_nokogiri.html).
 
 **Base de Datos:**
 
@@ -23,7 +23,7 @@ En produccion en cambio se definió postgresql como base de datos, por lo que ab
 
 Luego de que se haya ejecutado correctamente bundle install y de tener funcionando mysql podemos ejecutar sobre el directorio del proyecto "rails db:create db migrate" para crear la base de datos y las tablas correspondientes.
 
-Si se quiere precargar la base de datos para que contenga informacion desde el inicio sin tener que cargarla a mano se puede ejecutar "rails db:seed" y asi se insertarán todos los datos definidos en el archivo seeds.rb.
+Si se quiere precargar la base de datos para que contenga informacion desde el inicio sin tener que cargarla a mano se puede ejecutar "rails db:seed" y asi se insertarán todos los datos definidos en el archivo seeds.rb de la carpeta db del directorio raíz.
 
 **Puesta en ejecucion:**
 
