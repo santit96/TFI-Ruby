@@ -19,9 +19,10 @@ class GradeTest < ActiveSupport::TestCase
     assert_difference("Grade.count") do
       Grade.create(student:@student,evaluation:@evaluation,grade:1)
     end
-    assert_difference("Grade.count") do
-      Grade.create(student:@student2,evaluation:@evaluation)
+    assert_difference("Grade.count",0) do
+      Grade.create(student:@student2,evaluation:@evaluation,grade:"hola")
     end
+
   end
 
 

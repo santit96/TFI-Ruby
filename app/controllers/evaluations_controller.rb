@@ -50,6 +50,9 @@ class EvaluationsController < ApplicationController
       if @evaluation.update(evaluation_params)
         format.html { redirect_to [@course,@evaluation], notice: 'Evaluation was successfully updated.' }
         format.json { render :show, status: :ok, location: [@course,@evaluation] }
+      elsif params[:evaluation][:grades_attributes].present?
+        format.html { render :show }
+        format.json { render json: @evaluation.errors}
       else
         format.html { render :edit }
         format.json { render json: @evaluation.errors, status: :unprocessable_entity }

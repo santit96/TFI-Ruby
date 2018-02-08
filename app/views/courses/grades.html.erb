@@ -16,14 +16,24 @@
 		<td><%= student.name %></td>
 		<td><%= student.dni %></td>
 		<% @course.evaluations.each do |evaluation| %>
-		
-		<td><%= evaluation.grades.detect{|g| g.student==student}.grade %></td>
-		<td><%= evaluation.status(student) %> </td>
-		
+			<% if evaluation.grades.detect{|g| g.student==student}.grade.nil? then %>
+			  <td>-</td>
+			<% else %>
+			  <td><%= evaluation.grades.detect{|g| g.student==student}.grade %></td>
+			<% end %>
+			<td
+			<% if evaluation.status(student)=="Disapproved" then%>
+				style="color: red";
+			<% elsif evaluation.status(student)=="Approved" %>
+				style="color: green";
+			<% else%>
+				style="color: grey";
+			<% end %>
+			><%= evaluation.status(student) %> </td>
 		<% end %>
 	</tr>
 	<% end %>
-	<tr>
+	<tr >
 		<th colspan="2">Approved count</th>
 		<% @course.evaluations.each do |evaluation| %>
 			<td colspan="2"><%= evaluation.approved_count %></td>		
