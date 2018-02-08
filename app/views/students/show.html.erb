@@ -35,5 +35,5 @@
   <%= @student.course.name %>
 </p>
 </div>
-<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_student_path(@student) %>
+<%= link_to image_tag("edit.png", class:"edit-course-img col-md-2"), edit_course_student_path(@course,@student) %>
 <%= link_to image_tag("back.png" , class:"backArrow"),  course_students_path(@course,@student) %>
